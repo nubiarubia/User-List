@@ -14,12 +14,11 @@ Returns an array of all users stored in MongoDB.
 ### ✔ POST – Add a new user  
 Endpoint: `POST /api/users/add`  
 Accepts a JSON body containing:
-```json
-{
-  "id": Number,
-  "email": String,
-  "username": String
-}
+json " { "id": Number,
+         "email": String,
+         "username": String
+        }"
+
 
 ### ✔ PUT – Update an existing user
 Endpoint: PUT /api/users/update/:id  

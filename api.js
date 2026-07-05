@@ -63,19 +63,6 @@ router.route("/")
     }); 
 
 // =========================================== //
-// =========== GET A SPECIFIC USER =========== //
-// =========================================== //
-
-// Handles GET requests to '/api/users/:id'. 
-router.route("/:id") 
-    .get((req, res) => { 
-        // Find a user document by its ID from the request parameters. 
-        User.findById(req.params.id) 
-            .then((users) => res.json(users)) // If successful, return users as JSON. 
-            .catch((err) => res.status(400).json("Error: " + err)); // If error, return 400 status with error message. 
-    }); 
-
-// =========================================== //
 // ============== ADD NEW USER =============== //
 // =========================================== //
 
@@ -100,7 +87,20 @@ router.route("/add")
             .save() 
             .then(() => res.json("User added!")) // If successful, return success message. 
             .catch((err) => res.status(400).json("Error: " + err)); // If error, return 400 status with error message. 
-    }); 
+    });
+
+// =========================================== //
+// =========== GET A SPECIFIC USER =========== //
+// =========================================== //
+
+// Handles GET requests to '/api/users/:id'. 
+router.route("/:id") 
+    .get((req, res) => { 
+        // Find a user document by its ID from the request parameters. 
+        User.findById(req.params.id) 
+            .then((users) => res.json(users)) // If successful, return users as JSON. 
+            .catch((err) => res.status(400).json("Error: " + err)); // If error, return 400 status with error message. 
+    });
 
 // =========================================== //
 // ========= UPDATE AN EXISTING USER ========= //
